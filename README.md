@@ -10,4 +10,5 @@
 - working on
 - refining the table order, order_item 
 - and CRUD operation on the table which are displayed as 
-![alt text](https://github.com/KathanrDave/Sales-Analysis-System/assests/image.jng?raw=true)
+
+![image](https://user-images.githubusercontent.com/108331571/232905437-f33e0fb4-fff1-4706-bc74-30fbd17f7df5.png)
