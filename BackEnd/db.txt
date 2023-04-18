@@ -1,0 +1,128 @@
+Table 	              Data Type 
+	
+product	
+
+product_id(PK)	           BIGSERIAL
+product_name	           VARCHAR(30)
+product_price	           INT
+product_expiry_date	       DATE
+product_type	           ENUM(val1,..,val10)
+product_supplier_id  (FK)  BIGSERIAL
+product_weight	           INT
+product_cost	           INT
+product_performance	       INT 
+
+
+inventory
+
+inventory_id (PK)	       BIGSERIAL
+product_id 	 (FK)          BIGSERIAL
+product_name (FK)	       VARCHAR(30)
+product_type (FK)	       VARCHAR(30)
+store_id	 (FK)          BIGSERIAL
+product_quantity_in	       INT
+product_price (FK)	       INT
+lastupdated	               DATE
+	
+order	
+
+order_id	(PK)           BIGSERIAL
+customer_id	(FK)           BIGSERIAL
+employee_id	(FK)           BIGSERIAL
+order_price	(FK)           INT
+order_date	               DATE
+store_id	(FK)           BIGSERIAL
+order_cost	 (FK)          INT
+returned	               BOOLEAN
+
+
+order_item	 
+
+order_id 	(FK)           BIGSERIAL
+order_price	               INT
+order_item	               SET
+unit_price_item	(FK)       INT
+quantity_total	           INT
+product_id	 (FK)          VARCHAR(30)
+unit_cost_item	(FK)       INT
+order_cost	               INT
+quantity_individual	       INT
+	
+
+supplier
+	
+supplier_id (PK)	   BIGSERIAL
+supplier_name	       VARCHAR(30)
+product_id	           VARCHAR
+supplier_phone	       INT(10)
+	
+
+
+	
+store
+
+store_id	(PK)           BIGSERIAL
+store_name	               VARCHAR(30)
+store_location	           VARCHAR(30)
+store_expenses	           INT
+region_id	(FK)           BIGSERIAL
+order_id	(FK)           BIGSERIAL
+
+
+shipment_item
+
+shipment_id	  (FK)            BIGSERIAL
+shipment_cost	          INT
+shipment_item	          SET
+product_cost 	(FK)          INT
+total_quantity	          INT
+product_id	 (FK)             BIGSERIAL
+individual_quantity	      INT
+
+
+shipment
+
+shipment_id 	BIGSERIAL
+supplier_id 	BIGSERIAL
+shipment_date	DATE
+product_price 	INT
+store_id	    BIGSERIAL
+inventory_id	BIGSERIAL
+
+employee
+
+employee_id	(PK)           BIGSERIAL
+employee_name	           VARCHAR(30)
+employee_age	           INT
+employee_phone	           INT(10)
+employee_address	       VARCHAR(50)
+commission rate	           ENUM(5,10,20)
+store_id	(FK)           BIGSERIAL
+employee_title	           VARCHAR()
+	
+
+region
+
+region_id	(PK)           BIGSERIAL
+region_name	               VARCHAR(30)
+sales_actual	           INT
+sales_tragetted	           INT
+
+	
+customer	
+
+customer_id	 (PK)          BIGSERIAL
+customer_name	          VARCHAR(30)
+customer_phone	          INT(10)
+custmer_address	          VARCHAR(50)
+payment method	          ENUM(online,cash)
+	
+
+refund_returns	
+
+return_id	(PK)           BIGSERIAL
+order_id (FK)	           BIGSERIAL
+product_id 	(FK)           BIGSERIAL
+return_quantity 	       INT
+refund_amount              INT
+return_date	               DATE

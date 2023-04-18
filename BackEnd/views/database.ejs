@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tables</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      th, td {
+        padding: 8px;
+        text-align: left;
+        border: 1px solid #ddd;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Tables</h1>
+    <h2>Product</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Expiry Date</th>
+          <th>Type</th>
+          <th>Supplier ID</th>
+          <th>Weight</th>
+          <th>Cost</th>
+          <th>Performance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% products.forEach(product => { %>
+          <tr>
+            <td><%= product.product_id %></td>
+            <td><%= product.product_name %></td>
+            <td><%= product.product_price %></td>
+            <td><%= product.product_expiry_date %></td>
+            <td><%= product.product_type %></td>
+            <td><%= product.product_supplier_id %></td>
+            <td><%= product.product_weight %></td>
+            <td><%= product.product_cost %></td>
+            <td><%= product.product_performance %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <!-- Repeat the above code for each table -->
+
+    <h2>Inventory</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Product ID</th>
+          <th>Product Name</th>
+          <th>Product Type</th>
+          <th>Store ID</th>
+          <th>Quantity In</th>
+          <th>Price</th>
+          <th>Last Updated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% inventory.forEach(item => { %>
+          <tr>
+            <td><%= item.inventory_id %></td>
+            <td><%= item.product_id %></td>
+            <td><%= item.product_name %></td>
+            <td><%= item.product_type %></td>
+            <td><%= item.store_id %></td>
+            <td><%= item.product_quantity_in %></td>
+            <td><%= item.product_price %></td>
+            <td><%= item.lastupdated %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+
+
+
+    <h2>Customer</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Customer Name</th>
+          <th>Customer phone</th>
+          <th>Customer address</th>
+          <th>Payment Method</th>
+      
+        </tr>
+      </thead>
+      <tbody>
+        <% customers.forEach( customers => { %>
+          <tr>
+            <td><%=  customers.customer_id %></td>
+            <td><%=  customers.customer_name %></td>
+            <td><%=  customers.customer_phone %></td>
+            <td><%=  customers.customer_address %></td>
+            <td><%=  customers.payment_method %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <h2>Employee</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Employee Name</th>
+          <th>Age</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>store</th>
+          <th>Job Title</th>
+          <th>comission_rate</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+        <% employees.forEach(employee => { %>
+          <tr>
+            <td><%= employee.employee_id %></td>
+            <td><%= employee.employee_name %></td>
+            <td><%= employee.employee_age %></td>
+            <td><%= employee.employee_phone %></td>
+            <td><%= employee.employee_address %></td>
+            <td><%= employee.store_id %></td>
+            <td><%= employee.employee_title %></td>
+            <td><%= employee.commission_rate %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <h2>Region</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Region Name</th>
+          <th>sales actual</th>
+          <th>sales Tragetted</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% regions.forEach(region => { %>
+          <tr>
+            <td><%= region.region_id %></td>
+            <td><%= region.region_name %></td>
+            <td><%= region.sales_actual %></td>
+            <td><%= region.sales_targeted %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <h2>Store</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Store Name</th>
+          <th>Location</th>
+          <th>Expenses of the store </th>
+          <th>Region where the store is </th>
+     
+        </tr>
+      </thead>
+      <tbody>
+        <% stores.forEach(store => { %>
+          <tr>
+            <td><%= store.store_id %></td>
+            <td><%= store.store_name %></td>
+            <td><%= store.store_location %></td>
+            <td><%= store.store_expenses %></td>
+            <td><%= store.region_id %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <h2>Supplier</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%  suppliers.forEach( supplier => { %>
+          <tr>
+            <td><%= supplier.supplier_id %></td>
+            <td><%= supplier.supplier_name %></td>
+            <td><%= supplier.supplier_phone %></td>
+            
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <h2>Inventory</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Product ID</th>
+          <th>Product Name</th>
+          <th>Product Type</th>
+          <th>Store ID</th>
+          <th>Quantity In</th>
+          <th>Price</th>
+          <th>Last Updated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% inventory.forEach(item => { %>
+          <tr>
+            <td><%= item.inventory_id %></td>
+            <td><%= item.product_id %></td>
+            <td><%= item.product_name %></td>
+            <td><%= item.product_type %></td>
+            <td><%= item.store_id %></td>
+            <td><%= item.product_quantity_in %></td>
+            <td><%= item.product_price %></td>
+            <td><%= item.lastupdated %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <h2>Inventory</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Product ID</th>
+          <th>Product Name</th>
+          <th>Product Type</th>
+          <th>Store ID</th>
+          <th>Quantity In</th>
+          <th>Price</th>
+          <th>Last Updated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% inventory.forEach(item => { %>
+          <tr>
+            <td><%= item.inventory_id %></td>
+            <td><%= item.product_id %></td>
+            <td><%= item.product_name %></td>
+            <td><%= item.product_type %></td>
+            <td><%= item.store_id %></td>
+            <td><%= item.product_quantity_in %></td>
+            <td><%= item.product_price %></td>
+            <td><%= item.lastupdated %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <!-- Repeat the above code for each table -->
+
+  </body>
+</html>
