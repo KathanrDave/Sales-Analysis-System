@@ -205,66 +205,151 @@
         <% }) %>
       </tbody>
     </table>
-    <h2>Inventory</h2>
+    <h2>Orders</h2>
     <table>
       <thead>
         <tr>
           <th>ID</th>
-          <th>Product ID</th>
-          <th>Product Name</th>
-          <th>Product Type</th>
-          <th>Store ID</th>
-          <th>Quantity In</th>
-          <th>Price</th>
-          <th>Last Updated</th>
+          <th>Customer</th>
+          <th>Employee</th>
+          <th>Total Price</th>
+          <th>Date</th>
+          <th>Store</th>
+          <th>Cost</th>
+          <th>Returned</th>
         </tr>
       </thead>
       <tbody>
-        <% inventory.forEach(item => { %>
+        <% orders.forEach(order => { %>
           <tr>
-            <td><%= item.inventory_id %></td>
-            <td><%= item.product_id %></td>
-            <td><%= item.product_name %></td>
-            <td><%= item.product_type %></td>
-            <td><%= item.store_id %></td>
-            <td><%= item.product_quantity_in %></td>
-            <td><%= item.product_price %></td>
-            <td><%= item.lastupdated %></td>
+            <td><%= order.order_id %></td>
+            <td><%= order.customer_id %></td>
+            <td><%= order.employee_id %></td>
+            <td><%= order.order_price %></td>
+            <td><%= order.order_date %></td>
+            <td><%= order.store_id %></td>
+            <td><%= order.order_cost%></td>
+            <td><%= order.returned %></td>
+
           </tr>
         <% }) %>
       </tbody>
     </table>
-    <h2>Inventory</h2>
+    <h2>Order item</h2>
     <table>
       <thead>
         <tr>
           <th>ID</th>
-          <th>Product ID</th>
-          <th>Product Name</th>
-          <th>Product Type</th>
-          <th>Store ID</th>
-          <th>Quantity In</th>
-          <th>Price</th>
-          <th>Last Updated</th>
+          <th>Total Price</th>
+          <th>Items</th>
+          <th>Unit price</th>
+          <th>Total Quantity</th>
+          <th>Product id</th>
+          <th>Unit id</th>
+          <th>Total Cost</th>
+          <th>Unit Quantity</th>
         </tr>
       </thead>
       <tbody>
-        <% inventory.forEach(item => { %>
+        <% orderItems.forEach(oitem => { %>
           <tr>
-            <td><%= item.inventory_id %></td>
-            <td><%= item.product_id %></td>
-            <td><%= item.product_name %></td>
-            <td><%= item.product_type %></td>
-            <td><%= item.store_id %></td>
-            <td><%= item.product_quantity_in %></td>
-            <td><%= item.product_price %></td>
-            <td><%= item.lastupdated %></td>
+            <td><%= oitem.oder_id %></td>
+            <td><%= oitem.order_price %></td>
+            <td><%= oitem.order_item %></td>
+            <td><%= oitem.unit_price_item %></td>
+            <td><%= oitem.quantity_total %></td>
+            <td><%= oitem.product_id %></td>
+            <td><%= oitem.unit_cost_item %></td>
+            <td><%= oitem.order_cost %></td>
+            <td><%= oitem.quantity_individual %></td>
           </tr>
         <% }) %>
       </tbody>
     </table>
 
-    <!-- Repeat the above code for each table -->
+
+
+    <h2>Shipement</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Supplier</th>
+          <th>Date</th>
+          <th>product price</th>
+          <th>Store</th>
+          <th>inventory</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+        <% shipments.forEach(shipment => { %>
+          <tr>
+            <td><%= shipment.shipment_id %></td>
+            <td><%= shipment.supplier_id %></td>
+            <td><%= shipment.shipment_date %></td>
+            <td><%= shipment.product_price %></td>
+            <td><%= shipment.store_id %></td>
+            <td><%= shipment.inventory_id %></td>
+          
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+   
+    <h2>Shipement Items</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Cost</th>
+          <th>Items</th>
+          <th>Total Quantity</th>
+          <th>product</th>
+          <th> Quantity Individual</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% shipmentItems.forEach(shipmentItem => { %>
+          <tr>
+            <td><%= shipmentItem.shipment_id %></td>
+            <td><%= shipmentItem.shipment_cost %></td>
+            <td><%= shipmentItem.shipment_item %></td>
+            <td><%= shipmentItem.toal_quantity %></td>
+            <td><%= shipmentItem.product_id %></td>
+            <td><%= shipmentItem.individual_quantity%></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <h2>Refund</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Order</th>
+          <th>Product </th>
+          <th>returned Quantity</th>
+          <th>Amount</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% refunds.forEach(refund => { %>
+          <tr>
+            <td><%= refund.return_id %></td>
+            <td><%= refund.order_id %></td>
+            <td><%= refund.product_id %></td>
+            <td><%= refund.return_quantity %></td>
+            <td><%= refund.refund_amount%></td>
+            <td><%= refund.return_date %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    
 
   </body>
 </html>

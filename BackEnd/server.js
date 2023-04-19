@@ -39,8 +39,8 @@ app.get('/database', async (req, res) => {
   try {
     const productQuery = 'SELECT * FROM product';
     const inventoryQuery = 'SELECT * FROM inventory';
-    // const orderQuery = 'SELECT * FROM order';
-    // const orderItemQuery = 'SELECT * FROM order_item';
+    const orderQuery = 'SELECT * FROM order_table';
+    const orderItemQuery = 'SELECT * FROM order_item';
     const supplierQuery = 'SELECT * FROM supplier';
     const storeQuery = 'SELECT * FROM store';
     const shipmentItemQuery = 'SELECT * FROM shipment_item';
@@ -48,12 +48,12 @@ app.get('/database', async (req, res) => {
     const employeeQuery = 'SELECT * FROM employee';
     const regionQuery = 'SELECT * FROM region';
     const customerQuery = 'SELECT * FROM customer';
-    // const refundQuery = 'SELECT * FROM refund_returns';
+    const refundQuery = 'SELECT * FROM refund_returns';
 
     const productResult = await pool.query(productQuery);
     const inventoryResult = await pool.query(inventoryQuery);
-    // const orderResult = await pool.query(orderQuery);
-    // const orderItemResult = await pool.query(orderItemQuery);
+    const orderResult = await pool.query(orderQuery);
+    const orderItemResult = await pool.query(orderItemQuery);
     const supplierResult = await pool.query(supplierQuery);
     const storeResult = await pool.query(storeQuery);
     const shipmentItemResult = await pool.query(shipmentItemQuery);
@@ -61,13 +61,13 @@ app.get('/database', async (req, res) => {
     const employeeResult = await pool.query(employeeQuery);
     const regionResult = await pool.query(regionQuery);
     const customerResult = await pool.query(customerQuery);
-    // const refundResult = await pool.query(refundQuery);
+    const refundResult = await pool.query(refundQuery);
 
     res.render('database', {
       products: productResult.rows,
       inventory: inventoryResult.rows,
-    //   orders: orderResult.rows,
-    //   orderItems: orderItemResult.rows,
+      orders: orderResult.rows,
+      orderItems: orderItemResult.rows,
       suppliers: supplierResult.rows,
       stores: storeResult.rows,
       shipmentItems: shipmentItemResult.rows,
@@ -75,7 +75,7 @@ app.get('/database', async (req, res) => {
       employees: employeeResult.rows,
       regions: regionResult.rows,
       customers: customerResult.rows,
-    //   refunds: refundResult.rows,
+      refunds: refundResult.rows,
     });
   } catch (err) {
     console.error(err);

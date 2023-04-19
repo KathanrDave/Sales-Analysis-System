@@ -22,7 +22,7 @@ product_type (FK)	       VARCHAR(30)
 store_id	 (FK)          BIGSERIAL
 product_quantity_in	       INT
 product_price (FK)	       INT
-lastupdated	               DATE
+lastupdated	               DATE 
 	
 order	
 
