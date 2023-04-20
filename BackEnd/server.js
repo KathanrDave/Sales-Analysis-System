@@ -2,6 +2,10 @@ const express = require('express');
 const { Pool } = require('pg');
 const router = express.Router();
 const db = require('./db');
+const app = express();
+const trigger = require('./trigger_server.js');
+const functions = require('./functions_server.js');
+const procedure = require('./procedure_server.js');
 
 // Create a new connection pool to the PostgreSQL database
 const pool = new Pool({
@@ -12,27 +16,8 @@ const pool = new Pool({
   port: 5432,
 });
 
-const app = express();
-
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
-
-// Define a route to fetch and display the "product" data
-// app.get('/', async (req, res) => {
-//    res.render('homepage')
-// });
-// app.get('/database', (req, res) => {
-//     db.query('SELECT * FROM product,customer,employee,inventory, region, shipment,shipment_item,store,supplier', (err, result) => {
-//       if (err) {
-//         console.error(err);
-//         res.status(500).send('Error fetching products');
-//       } else {
-//         res.render('database', { database: result.rows });
-//       }
-//     });
-// });
-
-
 
 
 app.get('/database', async (req, res) => {
@@ -83,16 +68,44 @@ app.get('/database', async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-    console.log('Server started on port 3000');
+// Delete a product by ID
+app.get('/delete/:id', (req, res) => {
+  const id = req.params.id;
+  pool.query('DELETE FROM product WHERE product_id = $1', [id], (err, result) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Server Error');
+    } else {
+      res.status(200).send(`Product ${id} deleted successfully`);
+    }
+  });
+});
+
+// routes to run trigger implemented in the database
+app.get('/trigger', (req, res) => {
+  trigger.RandRcreateTrigger ();
+  trigger.EmployeecreateTrigger();
+  trigger.PricemonitoringcreateTrigger ();
+  res.render('trigger');
+});
+// routes to run functions implemented in the database
+app.get('/functions', (req, res) => {
+  functions.getTopEmployeesBySales ();
+  functions.getProductPerformance() ;
+  functions.getMaxSalesDays ();
+  res.render('functions');
+});
+// routes to run procedure implemented in the database
+app.get('/procedure', (req, res) => {
+  get_product_sales();
+  get_top_customers ();
+  get_top_selling_products  ();
+  get_store_sales ();
+  res.render('procedure');
 });
 
 
+app.listen(3000, () => {
+  console.log('Server started on port 3000');
+});
 
-// const pool = new Pool({
-//   user: 'postgres',
-//   host: 'localhost',
-//   database: 'postgres',
-//   password: 'kathan1810',
-//   port: 5432,
-// });

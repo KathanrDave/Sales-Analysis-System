@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tables</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      th, td {
+        padding: 8px;
+        text-align: left;
+        border: 1px solid #ddd;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+
+
+<table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Number of Orders</th>
+            <th>Total Sales</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let i = 0; i < results.length; i++) { %>
+            <tr>
+              <td><%= results[i].day %></td>
+              <td><%= results[i].num_orders %></td>
+              <td><%= results[i].total_sales %></td>
+            </tr>
+          <% } %>
+        </tbody>
+</table>
+<table>
+        <thead>
+          <tr>
+            <th>Employee ID</th>
+            <th>Name</th>
+            <th>Total Sales</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (let i = 0; i < data.length; i++) { %>
+            <tr>
+              <td><%= data[i].employee_id %></td>
+              <td><%= data[i].name %></td>
+              <td><%= data[i].total_sales %></td>
+            </tr>
+          <% } %>
+        </tbody>
+ </table>
+  
+
+<h1>Product Performance Analysis</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Total Sales</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (let i = 0; i < products.length; i++) { %>
+          <tr>
+            <td><%= products[i].name %></td>
+            <td><%= products[i].total_sales %></td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </body>
+</html>
+
+<table>
+    <thead>
+      <tr>
+        <th>Quarter</th>
+        <th>Sales Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (let i = 0; i < sales.length; i++) { %>
+        <tr>
+          <td>Quarter <%= sales[i].quarter %></td>
+          <td>$<%= sales[i].sales_amount %></td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+
+<!-- 5 -->
+<h2>Top 5% Loyal Customers</h2>
+</body>
+</html>
+
+<table>
+    <thead>
+      <tr>
+        <th>Customer Name</th>
+        <th>Total Purchases</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(var i = 0; i < customers.length; i++) { %>
+        <tr>
+          <td><%= customers[i].customer_name %></td>
+          <td><%= customers[i].total_purchases %></td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+  

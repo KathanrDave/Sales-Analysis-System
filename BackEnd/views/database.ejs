@@ -46,7 +46,9 @@
             <td><%= product.product_weight %></td>
             <td><%= product.product_cost %></td>
             <td><%= product.product_performance %></td>
+            <td> <a href="/delete/<%= product.product_id %>" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a></td>
           </tr>
+
         <% }) %>
       </tbody>
     </table>
@@ -59,11 +61,11 @@
         <tr>
           <th>ID</th>
           <th>Product ID</th>
-          <th>Product Name</th>
-          <th>Product Type</th>
+          <!-- <th>Product Name</th> -->
+          <!-- <th>Product Type</th> -->
           <th>Store ID</th>
-          <th>Quantity In</th>
-          <th>Price</th>
+          <!-- <th>Quantity In</th> -->
+          <!-- <th>Price</th> -->
           <th>Last Updated</th>
         </tr>
       </thead>
@@ -72,12 +74,14 @@
           <tr>
             <td><%= item.inventory_id %></td>
             <td><%= item.product_id %></td>
-            <td><%= item.product_name %></td>
-            <td><%= item.product_type %></td>
+            <!-- <td><%= item.product_name %></td> -->
+            <!-- <td><%= item.product_type %></td> -->
             <td><%= item.store_id %></td>
-            <td><%= item.product_quantity_in %></td>
-            <td><%= item.product_price %></td>
+            <!-- <td><%= item.product_quantity_in %></td> -->
+            <!-- <td><%= item.product_price %></td> -->
             <td><%= item.lastupdated %></td>
+            <td> <a href="/delete/<%=item.inventory_id %>" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a></td>
+
           </tr>
         <% }) %>
       </tbody>
@@ -106,6 +110,8 @@
             <td><%=  customers.customer_phone %></td>
             <td><%=  customers.customer_address %></td>
             <td><%=  customers.payment_method %></td>
+            <td> <a href="/delete/<%=  customers.customer_id%>" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a></td>
+
           </tr>
         <% }) %>
       </tbody>
@@ -136,6 +142,8 @@
             <td><%= employee.store_id %></td>
             <td><%= employee.employee_title %></td>
             <td><%= employee.commission_rate %></td>
+            <td> <a href="/delete/<%= employee.employee_id %>" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a></td>
+
           </tr>
         <% }) %>
       </tbody>
@@ -157,6 +165,8 @@
             <td><%= region.region_name %></td>
             <td><%= region.sales_actual %></td>
             <td><%= region.sales_targeted %></td>
+            <td> <a href="/delete/<%=region.region_id  %>" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a></td>
+
           </tr>
         <% }) %>
       </tbody>
@@ -181,6 +191,8 @@
             <td><%= store.store_location %></td>
             <td><%= store.store_expenses %></td>
             <td><%= store.region_id %></td>
+            <td> <a href="/delete/<%=  store.store_id %>" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a></td>
+
           </tr>
         <% }) %>
       </tbody>
@@ -200,6 +212,8 @@
             <td><%= supplier.supplier_id %></td>
             <td><%= supplier.supplier_name %></td>
             <td><%= supplier.supplier_phone %></td>
+            <td> <a href="/delete/<%= supplier.supplier_id   %>" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a></td>
+
             
           </tr>
         <% }) %>
@@ -230,6 +244,8 @@
             <td><%= order.store_id %></td>
             <td><%= order.order_cost%></td>
             <td><%= order.returned %></td>
+            <td> <a href="/delete/<%=  order.order_id %>" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a></td>
+
 
           </tr>
         <% }) %>
@@ -262,6 +278,8 @@
             <td><%= oitem.unit_cost_item %></td>
             <td><%= oitem.order_cost %></td>
             <td><%= oitem.quantity_individual %></td>
+            <td> <a href="/delete/<%= oitem.oder_id %>" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a></td>
+
           </tr>
         <% }) %>
       </tbody>
@@ -291,6 +309,8 @@
             <td><%= shipment.product_price %></td>
             <td><%= shipment.store_id %></td>
             <td><%= shipment.inventory_id %></td>
+            <td> <a href="/delete/<%= shipment.shipment_id %>" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a></td>
+
           
           </tr>
         <% }) %>
@@ -318,6 +338,8 @@
             <td><%= shipmentItem.toal_quantity %></td>
             <td><%= shipmentItem.product_id %></td>
             <td><%= shipmentItem.individual_quantity%></td>
+            <td> <a href="/delete/<%= shipmentItem.shipment_id %>" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a></td>
+
           </tr>
         <% }) %>
       </tbody>
@@ -344,12 +366,11 @@
             <td><%= refund.return_quantity %></td>
             <td><%= refund.refund_amount%></td>
             <td><%= refund.return_date %></td>
+            <td> <a href="/delete/<%= refund.return_id %>" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a></td>
+
           </tr>
         <% }) %>
       </tbody>
     </table>
-
-    
-
   </body>
 </html>
